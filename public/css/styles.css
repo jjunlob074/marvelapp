@@ -1,0 +1,759 @@
+@font-face {
+    font-family: 'BADABB';
+    src: url('/fonts/BADABB__.TTF') format('truetype');
+}
+:root {
+    --text-color: white;
+    --text-shadow: goldenrod;
+    --transition: 1000ms ease;
+  }
+    body, html {
+    background: #112031;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'BADABB', sans-serif;
+}
+.marvel {
+    color: var(--text-color);
+    font-size: 5rem;
+    padding: 1rem;
+    line-height: 1;
+    text-shadow:
+      1px 1px 0px var(--text-shadow),
+      1px 2px 0px var(--text-shadow),
+      2px 3px 0px var(--text-shadow),
+      2px 4px 0px var(--text-shadow),
+      3px 5px 0px var(--text-shadow),
+      3px 6px 0px var(--text-shadow),
+      4px 7px 0px var(--text-shadow),
+      4px 8px 0px var(--text-shadow),
+      5px 9px 0px var(--text-shadow),
+      5px 10px 0px var(--text-shadow),
+      6px 11px 0px var(--text-shadow),
+      6px 12px 0px var(--text-shadow),
+      7px 13px 0px var(--text-shadow),
+      7px 14px 0px var(--text-shadow),
+      8px 15px 0px var(--text-shadow),
+      8px 16px 0px var(--text-shadow),
+      9px 17px 0px var(--text-shadow),
+      9px 18px 0px var(--text-shadow),
+      10px 19px 0px var(--text-shadow),
+      11px 20px 0px var(--text-shadow),
+      12px 21px 0px var(--text-shadow),
+      13px 22px 0px var(--text-shadow); 
+    
+  }
+#deadpool {
+    width: 60px;
+    height: 90px;
+    aspect-ratio: 2 / 3;
+}
+h1,p,ul,li {
+    color:white;
+    text-align: center;
+}
+h3 {
+   color:goldenrod;
+   text-align: center;
+}
+/* Estilos para listas */
+ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 0; /* Elimina el margen superior predeterminado */
+}
+
+ul li {
+    padding: 0; /* Aumenta el espacio vertical entre elementos */
+}
+
+ul li:last-child {
+    border-bottom: none; /* Elimina el borde inferior del último elemento */
+}
+
+
+#back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background-color: #000;
+    background-image: url('/img/escudo.jpg');
+    background-size: cover;
+    background-position: center;
+    color: transparent;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .navbar-marvel {
+    width: 100%; /* Asegura que la navbar ocupe todo el ancho */
+    background: linear-gradient(45deg, #000000, #b91d47);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem 2rem;
+    margin: 0; /* Elimina márgenes que podrían afectar el ancho total */
+}
+
+.navbar-marvel .navbar-brand,
+.navbar-marvel .nav-link {
+    color: #ffffff !important;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+.navbar-marvel .nav-link {
+    position: relative;
+    padding: 0.5rem 0;
+    margin-right: 1rem; /* Considerar ajustes para dispositivos móviles si es necesario */
+    transition: opacity 0.3s ease-in-out;
+}
+
+.navbar-marvel .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: goldenrod;
+    transition: width 0.3s ease-in-out;
+}
+
+.navbar-marvel .nav-link:hover,
+.navbar-marvel .nav-link:focus {
+    opacity: 0.9;
+    color: goldenrod !important;
+}
+
+.navbar-marvel .nav-link:hover::after,
+.navbar-marvel .nav-link:focus::after {
+    width: 100%;
+}
+
+.nav-item {
+    font-size: 2rem; /* Ajuste según necesidad */
+}
+
+.navbar-toggler-icon {
+    background: url('/img/telaraña.avif');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    top: 0;
+    right: 20px;
+}
+@media screen and (max-width: 1500px) {
+    .nav-item {
+        font-size: 1rem; /* Tamaño de fuente ajustado para pantallas más pequeñas */
+    }
+}
+@media (max-width: 768px) {
+    .navbar-marvel {
+        padding: 0.5rem 1rem;
+    }
+
+    .navbar-marvel .nav-link {
+        margin-right: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    .nav-item {
+        font-size: 0.8rem; /* Ajustar para pantallas pequeñas */
+    }
+
+    /* Ajustes para el icono del menú en dispositivos móviles si es necesario */
+}
+
+
+.footer {
+    background: #000000;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    font-size: 14px;
+}
+.personajes-container {
+  max-width: 100%;
+}
+.flip-container {
+  background-color: transparent;
+  width: 100%;
+  height: 400px;
+  perspective: 1000px; 
+}
+.card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  
+}
+.card:hover {
+    cursor:pointer;
+}
+
+/* Nuevo estilo para oscurecer y mostrar el nombre */
+.card:hover .front::after {
+    content: attr(data-title); /* Utiliza el atributo data-title para el contenido */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Oscurecimiento del fondo */
+    color: #fff; /* Color del texto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 24px; /* Ajusta al tamaño deseado */
+    transition: opacity 0.5s;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.card:hover .front::after {
+    opacity: 1;
+}
+.flip-js {
+  transform: rotateY(180deg);
+}
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  font-size: 5rem;
+}
+.front {
+  
+  color: #111;
+  font-size: 12px;
+  
+}
+.back {
+  font-size: 16px;
+  color: white;
+  background: #EE171F;
+  font-weight: bold;
+  transform: rotateY(180deg);
+  padding:20px;
+  overflow: hidden;
+}
+
+/* Estilos adicionales que puedas necesitar para la imagen */
+.card img {
+    width: 100%;
+    height: 100%;
+}
+.marvel_back_img {
+    height: 20% !important;
+    width: 40% !important;
+    position: absolute;
+    bottom: 20px;
+}
+#pagination {
+  margin-top:20px;
+}
+#pagination a {
+    color:#EE171F !important;
+}
+#pagination .page-item.active .page-link {
+    background-color: goldenrod !important;
+    border-color: goldenrod !important;  
+}
+#pagination p {
+    color: goldenrod !important;
+}
+
+#pagination .page-link:focus {
+    box-shadow: 0 0 0 0.2rem goldenrod !important; /* Cambia rgba(255, 193, 7, 0.5) por tu color en formato RGBA */
+}
+
+/* Si deseas cambiarlo también para el estado :active */
+#pagination .page-link:active {
+    box-shadow: 0 0 0 0.2rem goldenrod !important; /* Cambia rgba(255, 193, 7, 0.5) por tu color en formato RGBA */
+}
+  /* Contenedor del formulario */
+  form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px; /* Espacio entre el input y el botón */
+        margin: 50px;
+    }
+
+    /* Estilos del input */
+    input[type="text"] {
+        padding: 10px;
+        width: 200px; /* Ajusta según necesites */
+        border: 1px solid #ccc; /* Borde del input */
+        border-radius: 5px; /* Bordes redondeados */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    }
+
+    /* Estilos del botón */
+    .form-button {
+        padding: 10px 20px;
+        background-color: #EE171F; /* Color de fondo del botón */
+        color: white; /* Color de texto */
+        border: none;
+        border-radius: 5px; /* Bordes redondeados */
+        cursor: pointer;
+        transition: background-color 0.3s; /* Transición suave al cambiar el color */
+    }
+
+    /* Cambio de color al pasar el mouse */
+    .form-button:hover {
+        background-color: goldenrod;
+    }
+    form a {
+        color:white !important;
+        text-decoration: none !important;
+    }
+    .video-wrapper {
+        position: fixed;
+        z-index: 1; /* Asegura que el video esté detrás de otros elementos */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    .bg-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Asegura que el video cubra toda la pantalla */
+        opacity: 0.5; /* Ajusta la opacidad del video */
+    }
+    .content-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center; /* Centra el contenido vertical y horizontalmente */
+        pointer-events: none; /* Permite la interacción con el video detrás del contenedor */
+    }
+    .content {
+        pointer-events: auto; /* Habilita la interacción con el contenido */
+        color: #fff;
+        padding: 20px;
+        text-align: center; /* Centra el texto dentro del contenido */
+        font-size: 48px;
+    }
+    .content h1 {
+        font-size:72px;
+    }
+    .navbar, .footer {
+    z-index: 1030; /* Un valor alto para asegurarse de que estén por encima de otros elementos */
+    position: relative; /* z-index solo funciona en elementos posicionados (no estáticos) */
+    width: 100%;
+}
+.flex-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content-flex {
+    flex: 1; /* Esto hace que el contenido se expanda ocupando todo el espacio disponible, empujando el footer hacia abajo */
+}
+
+/*ESTILOS DE LOS COMICS*/
+.comic-image {
+    height: 300px !important; /* Ajusta la altura según necesites */
+    object-fit: cover; /* Para mantener la proporción sin distorsiones */
+    cursor: default;
+}
+#img-show-comic {
+    border-radius: 20px;
+
+}
+
+/* CREADORES */
+/* public/css/styles.css */
+
+.creators-container {
+    margin: 0 auto;
+    width:100%;
+    padding:10px;
+    background-color: rgba(255,255,255,0.2);
+
+}
+
+.creators-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.creators-search-form {
+    margin-bottom: 20px auto;
+    max-width: 100%;
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.creators-search-input {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ed1d24; /* Rojo Marvel */
+    border-radius: 4px;
+    width: 60%;
+}
+
+.creators-search-button,.creators-show-all-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ed1d24; /* Rojo Marvel */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.creators-list {
+    list-style: none;
+    padding: 0;
+}
+
+.creators-item {
+    background-color: #333;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    padding: 15px;
+}
+
+.creators-name {
+    font-size: 20px;
+    color: goldenrod;
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.creators-type {
+    font-size: 16px;
+    color: #fff;
+    margin: 0;
+}
+.hero {
+    width: 100%;
+}
+.hero__background {
+    height: 100%;
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/*SERIES*/
+.series-img {
+    max-height: 400px;
+    max-width: 100%;
+    object-fit: cover;
+}
+#rating {
+    color: black !important;
+}
+.card-series {
+    border-radius: 20px;
+    cursor:default !important;
+}
+.series-card-index {
+    cursor:default !important;
+}
+.image-container {
+    overflow: hidden;
+    position: relative;
+}
+
+.image-container img {
+    transition: transform 0.3s ease;
+}
+
+.image-container:hover img {
+    transform: scale(1.2);
+}
+
+/*STORIES*/
+.stories{
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+    perspective-origin: 50% 50%;
+  }
+  .stories-container {
+    width: 23vw;
+    aspect-ratio: 3 / 4;
+    background: url('/img/marvel-black.jpg');
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    border: 2px solid goldenrod;
+    padding:20px;
+    margin: 10px auto;
+    transition: var(--transition);
+  }
+  
+  .stories-image {
+    position: absolute;
+    z-index: 10;
+    width: 280px;
+    height:220px;
+    aspect-ratio: 4 / 3;
+    border-radius: 20px;
+    border:2px solid goldenrod;
+    padding:30px;
+    background: url('/img/all-marvel.jpg');
+    background-size: cover;
+    background-position: center;
+    pointer-events: none;
+    transform: translate3d(0px, 0px, 0px) scale(1);
+    transition: var(--transition);
+    opacity: 0;
+    transform-origin: bottom;
+    box-shadow: 2px 6px 10px goldenrod;
+  }
+  .stories-container:hover {
+    box-shadow: 0px 50px 20px #00000080;
+    transform: translate3d(0px, 0px, 50px) rotate3d(1, 0, 0, 55deg);
+    filter: brightness(30%);
+  }
+  .stories-container:hover ~ .stories-image {
+    transform: translate3d(0px, -50px, 50px) scale(1.2);
+    opacity: 1;
+  }
+  /* Media Queries para dispositivos móviles */
+@media (max-width: 768px) {
+    .stories-container {
+      width: 70vw; /* Ajusta el ancho para pantallas más pequeñas */
+      padding: 10px; /* Reduce el padding */
+    }
+  
+    .stories-image {
+      width: 180px; /* Ajusta el tamaño de la imagen para que se ajuste mejor */
+    }
+  }
+
+  /* LEE */
+  .lee-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  
+    grid-auto-rows: 1fr;
+    grid-gap: 1em;
+    width: 100%;
+    margin: 0 auto;
+    background-color: black;
+  }
+  
+  .lee-item{
+    display: inline-block;
+    min-height: 400px;
+    width: 50%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  /*** Images With Color Fallbacks ***/
+  .lee-item:nth-child(1){
+    background-color: #e74c3c;
+    background-image: url(https://i.pinimg.com/originals/e1/12/f8/e112f875d7f05db887f3d7750474fb1a.jpg);
+    background-position: center top;
+  }
+  
+  .lee-item:nth-child(2){
+    background-color: #3498db;
+    background-image: url('/img/spider.jpg');
+    background-position: center 35%; 
+  }
+  
+  .lee-item:nth-child(3){
+    background-color: #bdc3c7;
+    background-image: url(http://www.writeups.org/wp-content/uploads/Black-Panther-Avengers-Marvel-Comics-h427.jpg);
+    background-position: center 20%;
+  }
+  
+  .lee-item:nth-child(4){
+    background-color: #2c3e50;
+    background-image: url(http://designrfix.com/wp-content/uploads/2010/05/The-incredible-hulk-art-12.jpg);
+  } 
+  
+  .lee-item:nth-child(5){
+    background-color: gray;
+    background-image: url('/img/STAN-LEE.jpg');
+    background-position: center 20px;
+  } 
+  
+  .lee-item:nth-child(6){
+    background-color: #27ae60;
+    background-image: url(http://cdn.collider.com/wp-content/uploads/2015/01/fantastic-four-comic-2.jpg);
+    background-position: 50% 25%;
+  } 
+  
+  .lee-item:nth-child(7){
+    background-color: #f1c40f;
+    background-image: url(https://nerdeux.files.wordpress.com/2011/09/rogues-thor-01.jpg);
+    background-position: left 27%;   
+  } 
+  
+  .lee-item:nth-child(8){
+    background-color: #2980b9;
+    background-image: url(https://2.bp.blogspot.com/-YSoMZR-S8CU/VRhKBl7HsZI/AAAAAAAAQqs/_s8iKmBMCUs/s1600/x-men-1-cover.jpg);
+    background-position: center 22%;  
+  } 
+  
+  /*** Grid Set Up ***/
+  @supports (display:grid){
+    .lee-item{
+      width: auto;
+      min-height: 0;
+      border: 3px solid black;
+    }
+    
+    .lee-item:nth-child(1){
+      grid-column: 1 / span 1;
+      grid-row: 1 / 20;  
+      -webkit-clip-path: polygon(0 0, 80% 0, 100% 76.5%, 0 100%);
+      clip-path: polygon(0 0, 80% 0, 100% 76.5%, 0 100%);
+      margin-bottom: -93px;
+    }
+  
+    .lee-item:nth-child(2){
+      grid-column: 2 / span 1;
+      grid-row: 1 / 20;  
+      -webkit-clip-path: polygon(0 0, 100% 0, 75% 80%, 15.5% 100%);
+      clip-path: polygon(0 0, 100% 0, 75% 80%, 15.5% 100%);
+      margin-left: -21%;
+      margin-right: -5%;
+    }
+  
+    .lee-item:nth-child(3){
+      grid-column: 3 / span 1;
+      grid-row: 1 / 20; 
+      -webkit-clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 53%);
+      clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 53%);
+      margin-left: -28%;
+      margin-bottom: -150px;
+    }
+  
+    .lee-item:nth-child(4){
+      grid-column: 1 / span 1;
+      grid-row: 20 / 40; 
+      -webkit-clip-path: polygon(0 22.5%, 100% 0, 100% 77.5%, 0 100%);
+      clip-path: polygon(0 22.5%, 100% 0, 100% 77.5%, 0 100%);
+      margin-top: -5px;
+      margin-bottom: -93px;    
+    } 
+  
+    .lee-item:nth-child(5){
+      grid-column: 2 / span 1;
+      grid-row: 20 / 40;
+      -webkit-clip-path: polygon(0 13%, 74% 0, 100% 9.25%, 100% 100%, 0 100%);
+      clip-path: polygon(0 13%, 74% 0, 100% 9.25%, 100% 82%, 65% 100%,0 82%);
+      margin-top: -67px;
+      margin-left: -1%;
+      margin-bottom: -86px;
+    } 
+  
+    .lee-item:nth-child(6){
+      grid-column: 3 / span 1;
+      grid-row: 20 / 40;
+      -webkit-clip-path: polygon(0 0, 100% 34.5%, 100% 100%, 0 68.5%) ;
+      clip-path: polygon(0 0, 100% 34.5%, 100% 100%, 0 68.5%);
+      margin-left: -1%;
+      margin-top: -20px;
+      margin-bottom: -150px;
+    } 
+  
+    .lee-item:nth-child(7){
+      grid-column: 1 / 3;
+      grid-row: 40 / 60; 
+      -webkit-clip-path: polygon(0 30%, 49% 0, 75% 38%, 34% 100%, 0 100%);
+      clip-path: polygon(0 30%, 49% 0, 82% 27%, 34% 100%, 0 100%);
+      margin-top: -7px;
+    } 
+  
+    .lee-item:nth-child(8){
+      grid-column: 2 / span 2;
+      grid-row: 40 / 60;
+      -webkit-clip-path: polygon(0 100%, 57% 0, 100% 48%, 100% 100%, 0 100%);
+      clip-path: polygon(0 100%, 57% 0, 100% 48%, 100% 100%, 0 100%);
+      margin-left: -15%;
+      margin-top: -7px;
+    }   
+  }
+  
+  /*** Floating lee-text ***/
+  .lee-text-box{
+    position: absolute;
+    top: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+  }
+  
+  .lee-text{
+    display: block;
+    text-align: center;
+    color: goldenrod;
+    text-shadow: 0px 3px 15px #000;
+    font-family: 'Bangers', cursive;
+    font-size: 2.5vmax;
+  }
+
+  /* DESTACADOS */
+  .parallax-section {
+    height: 100vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.info {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
+.show {
+    opacity: 1;
+}
+
+/* CAROUSEL */
+.carousel-item img {
+  max-height: 540px;
+}
